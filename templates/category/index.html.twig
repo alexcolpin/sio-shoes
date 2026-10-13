@@ -3,6 +3,7 @@
 {% block title %}categories{% endblock %}
 
 {% block body %}
+{% include 'layouts/_flash_message.html.twig' %}
 <div class = "container">
     <br>
     <h1>Catégories</h1>
@@ -28,5 +29,7 @@
         <p>Aucune catégorie à afficher</p>
         {% endfor %}
     </table>
+    <a class="btn btn-outline-success" href="{{ path('app_category_new') }}">Nouvelle
+    catégorie</a>
 </div>
 {% endblock %}
