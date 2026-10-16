@@ -1,15 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Modification sous-catégorie{% endblock %}
+{% block title %}{{ product.id is defined ? 'Modifier' : 'Nouveau' }} produit{% endblock %}
 
 {% block body %}
-<div class = "container">
-    <h1>Modifier une sous-catégorie</h1>
+<div class="container mt-4">
+    <h1>{{ product.id is defined ? 'Modifier le produit' : 'Ajouter un produit' }}</h1>
 
-    {{ include('sub_category/_form.html.twig', {'button_label': 'Modifier'}) }}
-    <br>
-    {{ include('sub_category/_delete_form.html.twig') }}
-    <br>
-    <a class="btn btn-dark" href="{{ path('app_sub_category_index') }}">Retour</a>
+    {% include 'layouts/_flash_message.html.twig' %}
+
+    {{ include('product/_form.html.twig') }}
+
+    <a href="{{ path('app_product_index') }}" class="btn btn-secondary mt-3">Retour à la liste</a>
 </div>
 {% endblock %}

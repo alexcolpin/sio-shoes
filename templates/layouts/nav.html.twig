@@ -14,16 +14,22 @@
     <li class="nav-item">
           <a class="nav-link" href="#">Link</a>
     </li>
-    {% if is_granted("ROLE_ADMIN") %}
+    {% if is_granted('ROLE_EDITOR') %}
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" role="button"
-        data-bs-toggle="dropdown" aria-expanded="false">Admin</a>
+           data-bs-toggle="dropdown" aria-expanded="false">
+            Édition
+        </a>
         <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="{{ path('app_category') }}">Catégories</a></li>
-            <li><a class="dropdown-item" href="{{ path('app_sub_category_index') }}">Sous-catégories</a></li>
+            <li>
+                <a class="dropdown-item" href="{{ path('app_product_index') }}">
+                    Produits
+                </a>
+            </li>
+            {# Tu pourras ajouter d’autres liens plus tard (stock, images...) #}
         </ul>
     </li>
-    {% endif %}
+{% endif %}
     <li class="nav-item">
           <a class="nav-link disabled" aria-disabled="true">Link</a>
     </li>
